@@ -1,28 +1,18 @@
 # Employee Management Service
 
-This project is an Employee Management Service designed to handle HTTP requests and manage provided data. It serves as a personnel accounting database where employees are categorized by departments and specialties, and can have tasks assigned to them. The goal is to automate the process of tracking hired, fired, and transferred employees, as well as the process of assigning and removing tasks via a REST API.
+This service is designed to handle HTTP requests and manage data related to personnel. It serves as a database for tracking employees categorized by departments and job roles. Additionally, it facilitates the assignment and removal of tasks for employees through a REST API.
 
-## Phase 1
+## Phase 1: Employee Management
 
-In Phase 1, we will implement functionality to work only with employees.
+For the initial phase, the service will focus on employee management only.
 
-## Endpoints
+### Endpoints:
 
-The service provides several endpoints to interact with:
+- **POST /employee**
+  - This endpoint accepts a POST request containing a JSON object with employee data. The provided data will be stored in the database. If an employee with the same identifier already exists, the information will be updated with the new data.
 
-### 1. Create/Update Employee
+- **GET /employee**
+  - This endpoint returns the list of all employees stored in the database.
 
-**POST /employee**
-
-- This endpoint accepts a JSON object with employee data.
-- The object will be saved in the database.
-- If an object with the same data already exists in the database, the fields will be updated with the new data.
-
-**Example Request:**
-```json
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "department": "IT",
-  "salary": 1000.0
-}
+- **DELETE /employee**
+  - This endpoint allows the deletion of a specific employee from the database.
